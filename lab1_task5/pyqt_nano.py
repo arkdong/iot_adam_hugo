@@ -11,7 +11,7 @@ from matplotlib.figure import Figure
 import sched, time
 import serial as ser
 
-arduino = ser.Serial(port='COM5', baudrate=115200, timeout=.1)
+arduino = ser.Serial(port='/dev/ttyACM0', baudrate=115200, timeout=.1)
 
 
 class MplWidget(QWidget):
@@ -31,8 +31,6 @@ class MplWidget(QWidget):
 class Lab1(QMainWindow):
     def __init__(self, *args):
         QMainWindow.__init__(self)
-        self.x = [0,1,1,1,2,3]
-        self.y = [0,1,1,1,2,3]
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle('arduino_sensors')
@@ -44,14 +42,16 @@ class Lab1(QMainWindow):
         if total <= 0:
             return
         data = arduino.readline().split(',')
-        self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
-        self.ui.MplWidget.canvas.draw()
+        print(data)
+        # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
+        # self.ui.MplWidget.canvas.draw()
         total -= 1
         scheduler.enter(interval, 1, self.measurement, (scheduler,interval, total))
         # # recieve data and convert to ascii
 
 
-        # return data
+        # return data        # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
+        # self.ui.MplWidget.canvas.draw()
 
     def scheduler(self):
         self.ui.MplWidget.canvas.axes.clear()

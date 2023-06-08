@@ -18,8 +18,11 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.MplWidget = MplWidget(self.centralwidget)
-        self.MplWidget.setGeometry(QtCore.QRect(50, 60, 721, 371))
+        self.MplWidget.setGeometry(QtCore.QRect(300, 60, 471, 371))
         self.MplWidget.setObjectName("MplWidget")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(90, 100, 111, 71))
+        self.pushButton.setObjectName("pushButton")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
@@ -35,4 +38,5 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.pushButton.setText(_translate("MainWindow", "Start"))
 from mplwidget import MplWidget

@@ -38,10 +38,14 @@ class Lab1(QMainWindow):
 
 
     def getdata(self):
+        result = []
         for i in range(15):
-            data = arduino.readline().split(',')
-            # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
-            # self.ui.MplWidget.canvas.draw()
+            data = arduino.readline().decode('ascii').split(',')
+            result.append(data)
+        print(result)
+        x = list(range(1,16))
+        # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
+        # self.ui.MplWidget.canvas.draw()
 
 
 if __name__ == "__main__":

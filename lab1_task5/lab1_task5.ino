@@ -7,8 +7,9 @@
   //  ------------------------------------------
 
   #include <Arduino_LSM6DS3.h>
-  
-  float x, y, z;  
+
+  float x, y, z;
+  char buffer[40];
 
   // put your setup code here
   void setup() {
@@ -29,7 +30,8 @@
   void loop() {
     if (IMU.accelerationAvailable()) {
         IMU.readAcceleration(x, y, z);
-
+        // sprintf(buffer, "%d,%d,%d",x,y,z);
+        // Serial.println(buffer);
         Serial.print(x);
         Serial.print(',');
         Serial.print(y);

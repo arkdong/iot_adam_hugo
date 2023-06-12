@@ -14,18 +14,24 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(1617, 1252)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.MplWidget = MplWidget(self.centralwidget)
-        self.MplWidget.setGeometry(QtCore.QRect(300, 60, 471, 371))
+        self.MplWidget.setGeometry(QtCore.QRect(470, 10, 1111, 1191))
         self.MplWidget.setObjectName("MplWidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(90, 100, 111, 71))
+        self.pushButton.setGeometry(QtCore.QRect(90, 100, 261, 81))
         self.pushButton.setObjectName("pushButton")
+        self.mean = QtWidgets.QTextBrowser(self.centralwidget)
+        self.mean.setGeometry(QtCore.QRect(90, 260, 261, 171))
+        self.mean.setObjectName("mean")
+        self.std = QtWidgets.QTextBrowser(self.centralwidget)
+        self.std.setGeometry(QtCore.QRect(90, 500, 261, 192))
+        self.std.setObjectName("std")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1617, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -39,4 +45,9 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "Start"))
+        self.mean.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
 from mplwidget import MplWidget

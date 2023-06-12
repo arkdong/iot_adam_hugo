@@ -34,32 +34,15 @@ class Lab1(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle('arduino_sensors')
-        self.ui.pushButton.clicked.connect(self.scheduler)
+        self.ui.pushButton.clicked.connect(self.getdata)
 
 
+    def getdata(self):
+        for i in range(15):
+            data = arduino.readline().split(',')
+            # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
+            # self.ui.MplWidget.canvas.draw()
 
-    def measurement(self, scheduler,interval, total):
-        if total <= 0:
-            return
-        data = arduino.readline().split(',')
-        print(data)
-        # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
-        # self.ui.MplWidget.canvas.draw()
-        total -= 1
-        scheduler.enter(interval, 1, self.measurement, (scheduler,interval, total))
-        # # recieve data and convert to ascii
-
-
-        # return data        # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
-        # self.ui.MplWidget.canvas.draw()
-
-    def scheduler(self):
-        # self.ui.MplWidget.canvas.axes.clear()
-        # my_scheduler = sched.scheduler(time.time, time.sleep)
-        # my_scheduler.enter(0,1,self.measurement, (my_scheduler,1,15))
-        # my_scheduler.run
-        data = arduino.readline().split(',')
-        print(data)
 
 if __name__ == "__main__":
     app = QApplication([])

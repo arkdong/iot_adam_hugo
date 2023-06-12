@@ -45,11 +45,13 @@ class Lab1(QMainWindow):
         self.ui.MplWidget.canvas.axes.plot(self.x[0 : self.counter], self.y[0 : self.counter], 'r', linewidth=0.5)
         self.ui.MplWidget.canvas.draw()
 
-        if self.ui.spinBox.valueChanged():
-            self.timer.setInterval(self.ui.spinBox.valueChanged())
+        interval_box = self.ui.spinBox.valueChanged()
+        max_x_box = self.ui.spinBox_2.valueChanged()
+        if interval_box:
+            self.timer.setInterval(interval_box)
 
-        if self.ui.spinBox_2.valueChanged():
-            self.max_x_value = self.ui.spinBox_2.valueChanged()
+        if max_x_box:
+            self.max_x_value = max_x_box
 
 
 if __name__ == "__main__":

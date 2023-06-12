@@ -38,12 +38,29 @@ class Lab1(QMainWindow):
 
 
     def getdata(self):
-        result = []
-        for i in range(15):
+        x_list = []
+        y_list = []
+        z_list = []
+        for i in range(1,16):
             data = arduino.readline().decode('ascii').split(',')
-            result.append(data)
-        print(result)
-        x = list(range(1,16))
+            x,y,z = data
+            x = float(x)
+            y = float(y)
+            z = float(z.replace("\r\n",""))
+            self.ui.MplWidget.canvas.axes.plot(x, i)
+            self.ui.MplWidget.canvas.axes.plot(y, i)
+            self.ui.MplWidget.canvas.axes.plot(z, i)
+            self.ui.MplWidget.canvas.draw()
+            print(x,y,z)
+            x_list.append(x)
+            y_list.append(y)
+            z_list.append(z)
+            time.sleep(1)
+
+        print(x_list)
+        print(y_list)
+        print(z_list)
+        x_axis = list(range(1,16))
         # self.ui.MplWidget.canvas.axes.plot(data[0], data[1])
         # self.ui.MplWidget.canvas.draw()
 

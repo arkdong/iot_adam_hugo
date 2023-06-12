@@ -1,4 +1,10 @@
-# Importing Libraries
+# // -------------------------------------------
+# //  Poject: Lab1_task3
+# //  Group: 76
+# //  Students: Adam Dong, Hugo Groene
+# //  Date: juni 12 2023
+# //  ------------------------------------------
+
 import serial
 import time
 
@@ -9,7 +15,7 @@ def write_read(x):
     # send command
     arduino.write(x.encode())
 
-    # stime for arduino to respond
+    # time for arduino to respond
     time.sleep(0.9)
 
     # recieve data and convert to ascii

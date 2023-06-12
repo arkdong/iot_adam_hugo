@@ -1,3 +1,10 @@
+# // -------------------------------------------
+# //  Poject: Lab1_task1
+# //  Group: 76
+# //  Students: Adam Dong, Hugo Groene
+# //  Date: juni 12 2023
+# //  ------------------------------------------
+
 import sys
 from PyQt5.QtCore import Qt, QTimer, QDateTime
 from PyQt5.QtWidgets import *
@@ -27,7 +34,6 @@ class Lab1(QMainWindow):
         self.active = False
         self.counter = 0
         self.max_x_value = 5
-
 
     def mybuttonfunction(self):
 
